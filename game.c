@@ -147,8 +147,8 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable){
             }
         }
         
-        //clear tail
-        draw_block(snake[SnakeLen-1].x, snake[SnakeLen-1].y, COLOR_BLACK);
+        //str tail
+        Point Tail=snake[SnakeLen-1];
 
         for (int i = SnakeLen - 1; i > 0; i--) {
             snake[i] = snake[i - 1];
@@ -168,6 +168,9 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable){
         if(snake[0].x==food.x && snake[0].y==food.y){
             spawn_food();
             SnakeLen++;
+            snake[SnakeLen-1]=Tail;
+        }else{
+            draw_block(Tail.x,Tail.y,COLOR_BLACK);
         }
 
         //draw newhead
