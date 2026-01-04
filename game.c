@@ -72,8 +72,22 @@ INT16 Rand(INT16 limit) {
 }
 
 void spawn_food(){
-    food.x = Rand(GridWidth - 2) + 1;
-    food.y = Rand(GridHeight - 2) + 1;
+    UINTN isValid=0;
+    
+    while(!isValid){
+        isValid=1;
+
+        food.x = Rand(GridWidth - 2) + 1;
+        food.y = Rand(GridHeight - 2) + 1;
+        
+        for(UINTN i=0;i<SnakeLen;i++){
+            if(snake[i].x==food.x && snake[i].y==food.y){
+                isValid=0;
+                break;
+            }
+        }
+    }
+
     draw_block(food.x, food.y, COLOR_RED);
 }
 
