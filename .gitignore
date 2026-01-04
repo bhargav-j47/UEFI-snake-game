@@ -1,0 +1,5 @@
+image/
+*.old
+*.o
+*.efi
+boote
