@@ -127,15 +127,21 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable){
 
     est->ConOut->OutputString(est->ConOut,L"");
     
-    status = gop->SetMode(gop,29); // 22:1920*1080 , 23:1920*1200, 28:2560*1440 29:2560*1600 
+    status = gop->SetMode(gop,0); // 22:1920*1080 , 23:1920*1200, 28:2560*1440 29:2560*1600  on real hardware use mode 0 only
     if (EFI_ERROR(status)) return status;
  
     VideoBuffer = (UINT32*)(UINTN)gop->Mode->FrameBufferBase;
     ScreenWidth = gop->Mode->Info->HorizontalResolution;
     ScreenHeight = gop->Mode->Info->VerticalResolution;
 
-    GridWidth = (ScreenWidth/BLOCK_SIZE) - 65;
+    //for real hardware use below
+    GridWidth = (ScreenWidth/BLOCK_SIZE);       
+    GridHeight = (ScreenHeight/BLOCK_SIZE);
+    
+    /* for qemu use below
+    GridWidth = (ScreenWidth/BLOCK_SIZE) - 65;       
     GridHeight = (ScreenHeight/BLOCK_SIZE) - 44;
+    */
 
     ebs->SetWatchdogTimer(0, 0, 0, NULL);
 
