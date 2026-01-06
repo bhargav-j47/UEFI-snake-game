@@ -1,4 +1,5 @@
 /* 
+    simple snake game using gnu-efi that runs as boot service on a UEFI
 */
 #include <efi.h>
 #include <efilib.h>
