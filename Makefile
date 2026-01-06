@@ -14,7 +14,6 @@ CFLAGS  = -target x86_64-unknown-windows \
 
 LDFLAGS = -subsystem:efi_application -entry:efi_main
 
-
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
