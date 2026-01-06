@@ -1,4 +1,5 @@
 /* 
+    simple snake game using gnu-efi that runs as boot service on a UEFI
 */
 #include <efi.h>
 #include <efilib.h>
@@ -133,6 +134,7 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable){
     VideoBuffer = (UINT32*)(UINTN)gop->Mode->FrameBufferBase;
     ScreenWidth = gop->Mode->Info->HorizontalResolution;
     ScreenHeight = gop->Mode->Info->VerticalResolution;
+<<<<<<< HEAD
 
     //for real hardware use below
     GridWidth = (ScreenWidth/BLOCK_SIZE);       
@@ -140,6 +142,15 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable){
     
     /* for qemu use below
     GridWidth = (ScreenWidth/BLOCK_SIZE) - 65;       
+=======
+    
+    //for real hardware use bellow
+    GridWidth = (ScreenWidth/BLOCK_SIZE);
+    GridHeight = (ScreenHeight/BLOCK_SIZE);
+    
+    /* for qemu use below
+    GridWidth = (ScreenWidth/BLOCK_SIZE) - 65;
+>>>>>>> graphics
     GridHeight = (ScreenHeight/BLOCK_SIZE) - 44;
     */
 
