@@ -3,5 +3,4 @@ image/
 *.o
 *.efi
 boote
-printModes.c
 

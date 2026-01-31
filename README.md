@@ -16,4 +16,12 @@
   3. You will need a esp (EFI system partition) to run this (for linux & windows their is already one for linux mount point is generally /boot/efi)
   4. create a new folder inside EFI directory and copy your game.efi file there
   5. now using efibootmgr create a boot record and make it at top priority
+    ```sudo efibootmgr --create --disk /dev/nvme1n1 --part 5 --label "snake-game" --loader /EFI/BOOT/game.efi```
   6. simply restart the pc and now it will boot into the SNAKE :)
+
+
+ #### to remve boot entry
+    1. delete the unneccessry folder in efi partionn
+    2. use following command to delete the boot entry
+        ```sudo efibootmgr -b <XXXX> -B```
+        where <XXXX> is boot id 
