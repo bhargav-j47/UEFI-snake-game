@@ -17,9 +17,8 @@
   4. create a new folder inside EFI directory and copy your game.efi file there
   5. now using efibootmgr create a boot record and make it at top priority
 
-    sudo efibootmgr --create --disk /dev/nvme1n1 --part 5 --label "snake-game" --loader /EFI/BOOT/game.efi
+    sudo efibootmgr --create --disk /dev/<disk> --part <efi partitio no> --label "snake-game" --loader /EFI/BOOT/game.efi
   6. simply restart the pc and now it will boot into the SNAKE :)
-
 
  #### to remve boot entry
     
